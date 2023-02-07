@@ -22,6 +22,18 @@ public class Estudante {
     }
 
 
+    public String estudar(){
+        return "estou estudando na linux tips agora";
+
+    }
+
+    public void dormir(){
+
+    }
+
+
+
+
 
 
 }
