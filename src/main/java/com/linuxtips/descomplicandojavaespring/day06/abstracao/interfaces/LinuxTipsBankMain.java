@@ -1,4 +1,4 @@
-package com.linuxtips.descomplicandojavaespring.day06.abstracao.classeabstrata;
+package com.linuxtips.descomplicandojavaespring.day06.abstracao.interfaces;
 
 public class LinuxTipsBankMain {
 

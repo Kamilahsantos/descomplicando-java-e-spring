@@ -1,6 +1,6 @@
-package com.linuxtips.descomplicandojavaespring.day06.abstracao.classeabstrata;
+package com.linuxtips.descomplicandojavaespring.day06.abstracao.interfaces;
 
-class ContaPoupanca extends Conta {
+class ContaPoupanca implements Conta {
 
 
     @Override

@@ -1,6 +1,6 @@
-package com.linuxtips.descomplicandojavaespring.day06.abstracao.classeabstrata;
+package com.linuxtips.descomplicandojavaespring.day06.abstracao.interfaces;
 
-class ContaCorrente extends Conta{
+class ContaCorrente implements Conta {
 
     @Override
     public void consultarSaldo() {
