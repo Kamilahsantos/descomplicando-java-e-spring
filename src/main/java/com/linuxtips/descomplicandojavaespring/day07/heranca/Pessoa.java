@@ -1,4 +1,4 @@
-package com.linuxtips.descomplicandojavaespring.day07;
+package com.linuxtips.descomplicandojavaespring.day07.heranca;
 
 public class Pessoa {
 
