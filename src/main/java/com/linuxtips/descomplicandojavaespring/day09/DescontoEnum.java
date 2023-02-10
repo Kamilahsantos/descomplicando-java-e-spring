@@ -4,7 +4,6 @@ package com.linuxtips.descomplicandojavaespring.day09;
 public enum DescontoEnum {
 
     ALUNA(10), FUNCIONARIO(20), EXTERNO(5);
-
     int valor;
 
     DescontoEnum(int valor) {
