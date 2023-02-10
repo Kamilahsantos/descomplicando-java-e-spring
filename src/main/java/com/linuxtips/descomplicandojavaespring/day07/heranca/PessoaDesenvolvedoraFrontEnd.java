@@ -1,6 +1,5 @@
 package com.linuxtips.descomplicandojavaespring.day07.heranca;
 
-import com.linuxtips.descomplicandojavaespring.day07.heranca.PessoaDesenvolvedora;
 
 public class PessoaDesenvolvedoraFrontEnd extends PessoaDesenvolvedora {
 
