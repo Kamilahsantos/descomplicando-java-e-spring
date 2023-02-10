@@ -19,7 +19,7 @@ public class PedidoScanner {
 
         Double valor = scanner.nextDouble();
 
-        Double total = valor * quantidade;
+        double total = valor * quantidade;
 
         System.out.println("O valor total da sua compra é  " + total);
 

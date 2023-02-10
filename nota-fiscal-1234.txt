@@ -1,0 +1,2 @@
+Código do produto:  1234 Qtde:  1 valor do produto:  10.0
+ total da compra:  10.0
