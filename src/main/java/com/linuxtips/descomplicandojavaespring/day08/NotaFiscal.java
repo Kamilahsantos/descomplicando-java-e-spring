@@ -20,9 +20,9 @@ public class NotaFiscal {
 
         System.out.println("Digite o valor do produto");
 
-        Double valor = scanner.nextDouble();
+        Integer valor = scanner.nextInt();
 
-        double total = valor * quantidade;
+        int total = valor * quantidade;
 
         System.out.println("O valor total da sua compra é  " + total);
 
