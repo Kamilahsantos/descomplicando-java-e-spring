@@ -1,4 +1,4 @@
-package com.linuxtips.descomplicandojavaespring.day09;
+package com.linuxtips.descomplicandojavaespring.day09.enums;
 
 
 public enum DescontoEnum {
