@@ -13,12 +13,12 @@ public enum DescontoEnum {
     public static void main(String[] args) {
 
         for (DescontoEnum descontoEnum : DescontoEnum.values()) {
-            System.out.println("Tipos de desconto  " + descontoEnum.valor);
+            System.out.println("tipos de desconto " + descontoEnum + "valor desconto " + descontoEnum.valor);
+
         }
 
 
     }
-
 
 }
 
