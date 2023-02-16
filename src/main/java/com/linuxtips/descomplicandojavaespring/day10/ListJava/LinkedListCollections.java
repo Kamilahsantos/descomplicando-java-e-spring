@@ -1,4 +1,4 @@
-package com.linuxtips.descomplicandojavaespring.day10;
+package com.linuxtips.descomplicandojavaespring.day10.ListJava;
 
 import java.util.LinkedList;
 
@@ -7,7 +7,7 @@ public class LinkedListCollections {
     public static void main(String[] args) {
 
         LinkedList<Integer> minhaLinkedList = new LinkedList<>();
-        for (int i = 1; i <= 5; i++)
+        for (int i = 1; i <= 10; i++)
             minhaLinkedList.add(i);
         System.out.println(minhaLinkedList);
         System.out.println(minhaLinkedList.pop());
