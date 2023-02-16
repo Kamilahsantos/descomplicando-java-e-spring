@@ -7,6 +7,9 @@ public class VectorListCollections {
 
     public static void main(String[] args) {
 
+
+        //também muito semelhante ao ArrayList mas é mais thread safe
+        //alocacao dinamica -> aumenta 100% o tamanho quando esta cheia
         Vector<Integer> meuVector = new Vector<>();
         for (int i = 1; i <= 10; i++)
             meuVector.add(i);

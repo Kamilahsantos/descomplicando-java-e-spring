@@ -6,6 +6,8 @@ public class LinkedListCollections {
 
     public static void main(String[] args) {
 
+        //igual o array list porem com melhor peformance para os métodos add e remove
+        //
         LinkedList<Integer> minhaLinkedList = new LinkedList<>();
         for (int i = 1; i <= 10; i++)
             minhaLinkedList.add(i);

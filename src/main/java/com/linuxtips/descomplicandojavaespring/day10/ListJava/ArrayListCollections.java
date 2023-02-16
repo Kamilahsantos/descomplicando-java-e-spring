@@ -8,6 +8,8 @@ public class ArrayListCollections {
 
         // nos fornece arrays dinâmicos em Java
         // pode ser mais lento que os Arrays padrão
+        //aumenta 50 % do tamanho quando esta cheio
+        //quando aumenta de tamanho faz copia do array atual para um novo array com o mesmo tamanho
         ArrayList<Integer> meuArrayList = new ArrayList<>();
 
         for (int i = 1; i <= 10; i++)
