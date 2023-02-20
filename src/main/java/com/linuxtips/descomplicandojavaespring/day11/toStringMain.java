@@ -13,6 +13,10 @@ public class toStringMain {
 
         System.out.println(funcionaria);
 
+        System.out.println(funcionaria.getNome().equals("java"));
+        var setorHashCode = String.valueOf(funcionaria.getSetor().hashCode());
+        var setorHashCodeNovo = String.valueOf("bancario".hashCode());
+        System.out.println(setorHashCode.equals(setorHashCodeNovo.hashCode()));
 
     }
 }
