@@ -1,4 +1,4 @@
-package com.linuxtips.descomplicandojavaespring.day12.upcasting;
+package com.linuxtips.descomplicandojavaespring.day12.updowncasting;
 
 
 //upcasting consiste em converter uma subclasse para uma superclasse
