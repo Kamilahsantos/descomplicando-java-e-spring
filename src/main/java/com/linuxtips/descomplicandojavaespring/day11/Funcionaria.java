@@ -9,7 +9,6 @@ public class Funcionaria {
     private String cargo;
     private String setor;
     private Double salario;
-
     public Integer getIdade() {
         return idade;
     }
@@ -50,10 +49,12 @@ public class Funcionaria {
         this.salario = salario;
     }
 
+
     @Override
     public String toString() {
-        return "Funcionaria com o nome "+ nome+ " tem " + idade  + "  anos "
-                + "tem o cargo  "+  cargo+ " trabalha no setor  "+  setor + " e recebe o salario de " + salario;
+        return "Funcionaria com o nome  "+ nome +"  tem " + idade
+                + " anos  e tem o cargo  " + cargo + "  trabalha no setor  "+ setor+
+                "e recebe o salario de  " + salario;
     }
 
     @Override
