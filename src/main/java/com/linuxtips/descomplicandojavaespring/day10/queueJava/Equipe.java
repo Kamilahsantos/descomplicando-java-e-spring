@@ -2,18 +2,17 @@ package com.linuxtips.descomplicandojavaespring.day10.queueJava;
 
 public class Equipe {
 
-    public Equipe(String nome, int saldoDePontos) {
+
+    public Equipe(String nome, int saldoDepontos) {
         this.nome = nome;
-        this.saldoDePontos = saldoDePontos;
+        this.saldoDepontos = saldoDepontos;
     }
 
     public String nome;
-    public int saldoDePontos;
+   public int saldoDepontos;
 
-
-    public String toString(){
-      return "Equipe "+ nome+ "está com a pontuação "+ saldoDePontos;
+    @Override
+    public String toString() {
+        return "Equipe "+  nome  + " está com a pontuação  "+ saldoDepontos;
     }
-
-
 }

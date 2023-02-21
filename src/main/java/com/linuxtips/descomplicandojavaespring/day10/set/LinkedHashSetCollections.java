@@ -1,5 +1,6 @@
 package com.linuxtips.descomplicandojavaespring.day10.set;
 
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 
 public class LinkedHashSetCollections {
@@ -10,8 +11,7 @@ public class LinkedHashSetCollections {
         //elementos devem ser unicos
         // mantem a ordem de inserção
 
-
-        LinkedHashSet<String> linguagens =  new  LinkedHashSet<String>();
+        LinkedHashSet<String> linguagens = new LinkedHashSet<>();
         linguagens.add("Java");
         linguagens.add("Python");
         linguagens.add("Javascript");
@@ -20,6 +20,12 @@ public class LinkedHashSetCollections {
         linguagens.add("Rust");
         linguagens.add("Scala");
         linguagens.add("Java");
+        linguagens.add("Python");
+        linguagens.add("Javascript");
+        linguagens.add("Ruby");
+        linguagens.add("Kotlin");
+        linguagens.add("Rust");
+        linguagens.add("Scala");
         linguagens.add("Python");
         linguagens.add("Javascript");
         linguagens.add("Ruby");
@@ -29,7 +35,9 @@ public class LinkedHashSetCollections {
 
         System.out.println(linguagens);
 
-        System.out.println(linguagens.remove( "Javascript" ));
+        System.out.println(linguagens.remove("Javascript"));
+
+        System.out.println(linguagens);
 
 
     }

@@ -12,8 +12,7 @@ public class HashSetCollections {
         // objetos são inseriods com base em seu código hash
         // elementos null tbm sao permitidos
 
-
-        HashSet<String> linguagens = new HashSet<String>();
+        HashSet<String> linguagens = new HashSet<>();
         linguagens.add("Java");
         linguagens.add("Python");
         linguagens.add("Javascript");
@@ -22,21 +21,15 @@ public class HashSetCollections {
         linguagens.add("Rust");
         linguagens.add("Scala");
 
-
         System.out.println(linguagens);
 
-
-        //verifica se existe determinado item
         System.out.println(linguagens.contains("Kotlin"));
 
-        //descobrir o tamanho
         System.out.println(linguagens.size());
 
-        //percorrer hashset - foreach
-        for (String i : linguagens) {
+        for(String i: linguagens){
             System.out.println(i);
         }
-
 
 
 
