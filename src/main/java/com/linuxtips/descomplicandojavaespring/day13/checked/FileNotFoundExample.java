@@ -6,20 +6,14 @@ import java.io.FileNotFoundException;
 public class FileNotFoundExample {
 
     public static void main(String[] args) throws FileNotFoundException {
-
         FileInputStream fileInputStream = null;
 
         try {
-
-
-            fileInputStream = new FileInputStream(
-                    "invalidpath.txt");
+            fileInputStream = new FileInputStream("invalidpath.txt");
+        } catch (FileNotFoundException e) {
+            System.out.println("arquivo não localizado no caminho informado, ocorreu o seguinte erro {[]}  "+ e);
         }
 
-        catch (FileNotFoundException e) {
-
-            System.out.println("Arquivo não localizado na caminho informado");
-        }
 
     }
 }
