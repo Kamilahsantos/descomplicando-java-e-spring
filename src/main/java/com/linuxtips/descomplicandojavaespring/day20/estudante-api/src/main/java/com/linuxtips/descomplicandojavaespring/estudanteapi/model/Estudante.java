@@ -2,6 +2,10 @@ package com.linuxtips.descomplicandojavaespring.estudanteapi.model;
 
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "estudante")
@@ -18,6 +22,30 @@ public class Estudante {
     private Long meioPagamento;
     @Column(nullable = false)
     private String curso;
+
+    @CreationTimestamp
+    @Column(name = "criado_em", nullable = false, updatable = false)
+    private LocalDateTime criadoEm;
+
+
+    @UpdateTimestamp
+    @Column(name = "atualizado_em")
+    private  LocalDateTime atualizadoEm;
+    public LocalDateTime getCriadoEm() {
+        return criadoEm;
+    }
+
+    public void setCriadoEm(LocalDateTime criadoEm) {
+        this.criadoEm = criadoEm;
+    }
+
+    public LocalDateTime getAtualizadoEm() {
+        return atualizadoEm;
+    }
+
+    public void setAtualizadoEm(LocalDateTime atualizadoEm) {
+        this.atualizadoEm = atualizadoEm;
+    }
 
 
     public Long getId() {
