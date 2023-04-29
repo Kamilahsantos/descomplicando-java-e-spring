@@ -57,7 +57,13 @@ public class EstudanteService {
                 }).orElse(ResponseEntity.notFound().build());
     }
 
+    public ResponseEntity<Estudante> buscarEstudantePeloNome
+            (String nome){
+        return estudanteRepository.findByName(nome)
+                .map(estudante -> ResponseEntity.ok().body(estudante))
+                .orElse(ResponseEntity.notFound().build());
 
+    }
 
 
 

@@ -56,5 +56,11 @@ public class EstudanteController {
         return estudanteService.excluirEstudantePeloId(id);
 
     }
+    @GetMapping("/estudantes/nome/{nome}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Estudante> buscarEstudantePeloName
+            (@PathVariable(value = "nome") String nome) {
+        return estudanteService.buscarEstudantePeloNome(nome);
 
+    }
 }

@@ -3,8 +3,17 @@ package com.linuxtips.descomplicandojavaespring.estudanteapi.repository;
 
 import com.linuxtips.descomplicandojavaespring.estudanteapi.model.Estudante;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 @Repository
 public interface EstudanteRepository extends JpaRepository<Estudante,Long> {
+
+
+    @Query("SELECT c FROM Estudante c WHERE c.nome = :nome")
+    Optional<Estudante> findByName(String nome);
+
 }
