@@ -63,4 +63,10 @@ public class EstudanteController {
         return estudanteService.buscarEstudantePeloNome(nome);
 
     }
+
+    @GetMapping("/estudantes/curso")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Estudante> listarEstudantesPeloCurso(@RequestParam String nomeCurso) {
+        return estudanteService.listarEstudantesPeloCurso(nomeCurso);
+    }
 }

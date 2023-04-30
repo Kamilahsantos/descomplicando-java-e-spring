@@ -65,6 +65,11 @@ public class EstudanteService {
 
     }
 
+    public List<Estudante> listarEstudantesPeloCurso(String curso){
+        return  estudanteRepository.findBycurso(curso);
+    }
+
+
 
 
 
