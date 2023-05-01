@@ -13,29 +13,28 @@ import java.util.List;
 public class EstudanteService {
 
 
-
     @Autowired
     private EstudanteRepository estudanteRepository;
 
 
-    public Estudante criarEstudante(Estudante estudante){
+    public Estudante criarEstudante(Estudante estudante) {
         return estudanteRepository.save(estudante);
     }
 
-    public List<Estudante> listarEstudantes(){
-        return  estudanteRepository.findAll();
+    public List<Estudante> listarEstudantes() {
+        return estudanteRepository.findAll();
     }
 
 
     public ResponseEntity<Estudante> buscarEstudantePeloId
-            (Long id){
+            (Long id) {
         return estudanteRepository.findById(id)
                 .map(estudante -> ResponseEntity.ok().body(estudante))
                 .orElse(ResponseEntity.notFound().build());
     }
 
 
-    public ResponseEntity<Estudante> atualizarEstudantePeloId(Estudante estudante, Long id){
+    public ResponseEntity<Estudante> atualizarEstudantePeloId(Estudante estudante, Long id) {
         return estudanteRepository.findById(id)
                 .map(estudanteToUpdate -> {
                     estudanteToUpdate.setCurso(estudante.getCurso());
@@ -49,7 +48,7 @@ public class EstudanteService {
 
 
     public ResponseEntity<Object> excluirEstudantePeloId
-            (Long id){
+            (Long id) {
         return estudanteRepository.findById(id)
                 .map(estudanteToDelete -> {
                     estudanteRepository.deleteById(id);
@@ -58,19 +57,44 @@ public class EstudanteService {
     }
 
     public ResponseEntity<Estudante> buscarEstudantePeloNome
-            (String nome){
+            (String nome) {
         return estudanteRepository.findByName(nome)
                 .map(estudante -> ResponseEntity.ok().body(estudante))
                 .orElse(ResponseEntity.notFound().build());
 
     }
 
-    public List<Estudante> listarEstudantesPeloCurso(String curso){
-        return  estudanteRepository.findBycurso(curso);
+    //TODO desafio: adicione resposta de 404 quando nao achar nenhum dentro desse filtro
+    public List<Estudante> listarEstudantesPeloCurso(String curso) {
+        return estudanteRepository.findBycurso(curso);
     }
 
 
+    //TODO desafio: adicione resposta de 404 quando nao achar nenhum dentro desse filtro
 
+    public List<Estudante> listarEstudantesPeloComecoDoNome(String comecoNome) {
+        return estudanteRepository.findByNomeStartingWith(comecoNome);
+    }
+
+
+    //TODO desafio: adicione resposta de 404 quando nao achar nenhum dentro desse filtro
+
+    public List<Estudante> listarEstudantesPeloComecoDoNomeECurso(String comecoNome, String curso) {
+        return estudanteRepository.findByNomeStartingWithAndCurso(comecoNome, curso);
+    }
+
+
+    //TODO desafio: adicione resposta de 404 quando nao achar nenhum dentro desse filtro
+
+    public List<Estudante> listarEstudantesPeloEndereco(String endereco) {
+        return estudanteRepository.findByEnderecoStartingWithOrderByEnderecoDesc(endereco);
+    }
+
+    //TODO desafio: adicione resposta de 404 quando nao achar nenhum dentro desse filtro
+
+    public List<Estudante> listarPrimeirosEstudantes(Long id) {
+        return estudanteRepository.findByIdLessThanEqual(id);
+    }
 
 
 }

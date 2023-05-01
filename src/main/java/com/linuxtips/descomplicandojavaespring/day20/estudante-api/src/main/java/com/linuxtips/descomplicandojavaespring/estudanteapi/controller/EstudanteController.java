@@ -56,9 +56,10 @@ public class EstudanteController {
         return estudanteService.excluirEstudantePeloId(id);
 
     }
+
     @GetMapping("/estudantes/nome/{nome}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Estudante> buscarEstudantePeloName
+    public ResponseEntity<Estudante> buscarEstudantePeloNome
             (@PathVariable(value = "nome") String nome) {
         return estudanteService.buscarEstudantePeloNome(nome);
 
@@ -66,7 +67,39 @@ public class EstudanteController {
 
     @GetMapping("/estudantes/curso")
     @ResponseStatus(HttpStatus.OK)
-    public List<Estudante> listarEstudantesPeloCurso(@RequestParam String nomeCurso) {
-        return estudanteService.listarEstudantesPeloCurso(nomeCurso);
+    public List<Estudante> listarEstudantesPeloCurso(@RequestParam String nome_curso) {
+        return estudanteService.listarEstudantesPeloCurso(nome_curso);
     }
+
+    @GetMapping("/estudantes/nome")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Estudante> listarEstudantesPeloComecoDoNome(@RequestParam String comeco_nome) {
+        return estudanteService.listarEstudantesPeloComecoDoNome(comeco_nome);
+    }
+
+    @GetMapping("/estudantes/curso-nome")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Estudante> listarEstudantesPeloComecoDoNomeECurso
+    (@RequestParam String comeco_nome,
+     @RequestParam String curso) {
+        return estudanteService.listarEstudantesPeloComecoDoNomeECurso(comeco_nome, curso);
+    }
+
+
+
+    @GetMapping("/estudantes/endereco")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Estudante> listarEstudantesPeloEndereco
+            (@RequestParam String endereco) {
+        return estudanteService.listarEstudantesPeloEndereco(endereco);
+    }
+
+    @GetMapping("/estudantes/promo")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Estudante> listarPrimeirosEstudantes
+            (@RequestParam Long id) {
+        return estudanteService.listarPrimeirosEstudantes(id);
+    }
+
+
 }
