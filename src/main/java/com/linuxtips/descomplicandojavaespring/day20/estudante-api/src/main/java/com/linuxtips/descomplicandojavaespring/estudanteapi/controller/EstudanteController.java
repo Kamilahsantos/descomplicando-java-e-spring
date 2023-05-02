@@ -18,21 +18,21 @@ public class EstudanteController {
     private EstudanteService estudanteService;
 
 
-    //ok
+
     @PostMapping("/estudantes")
     @ResponseStatus(HttpStatus.CREATED)
     public Estudante criarEstudante(@RequestBody Estudante estudante) {
         return estudanteService.criarEstudante(estudante);
     }
 
-    //ok
+
     @GetMapping("/estudantes")
     @ResponseStatus(HttpStatus.OK)
     public List<Estudante> listarEstudantes() {
         return estudanteService.listarEstudantes();
     }
 
-//ok
+
     @GetMapping("/estudantes/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Estudante> buscarEstudantePeloId
@@ -43,7 +43,6 @@ public class EstudanteController {
 
 
 
-    //nao atualiza dado bancario
     @PutMapping("/estudantes/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Estudante> atualizarEstudantePeloId
@@ -54,7 +53,6 @@ public class EstudanteController {
     }
 
 
-    //ok
     @DeleteMapping("/estudantes/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity<Object> excluirEstudantePeloId
@@ -63,7 +61,6 @@ public class EstudanteController {
 
     }
 
-    //ok
     @GetMapping("/estudantes/nome/{nome}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Estudante> buscarEstudantePeloNome
@@ -72,7 +69,6 @@ public class EstudanteController {
 
     }
 
-    //ok
     @GetMapping("/estudantes/curso")
     @ResponseStatus(HttpStatus.OK)
     public List<Estudante> listarEstudantesPeloCurso(@RequestParam String nome_curso) {
