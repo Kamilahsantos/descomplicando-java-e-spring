@@ -20,6 +20,7 @@ public interface EstudanteRepository extends JpaRepository<Estudante,Long> {
     @Query("SELECT c FROM Estudante c WHERE c.curso = :curso")
     List<Estudante> findBycurso(String curso);
 
+
     List<Estudante> findByNomeStartingWith(String nome);
 
 
@@ -28,8 +29,9 @@ public interface EstudanteRepository extends JpaRepository<Estudante,Long> {
 
     List<Estudante> findByEnderecoStartingWithOrderByEnderecoDesc(String endereco);
 
-
     List<Estudante> findByIdLessThanEqual(Long id);
+
+
 
 
 }

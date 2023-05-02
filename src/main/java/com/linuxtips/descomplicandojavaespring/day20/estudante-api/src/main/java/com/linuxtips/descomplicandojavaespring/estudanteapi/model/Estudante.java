@@ -1,6 +1,7 @@
 package com.linuxtips.descomplicandojavaespring.estudanteapi.model;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -18,8 +19,12 @@ public class Estudante {
     private String nome;
     @Column(nullable = false, length = 10)
     private String endereco;
-    @Column(nullable = false)
-    private Long meioPagamento;
+
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "dados_bancarios_id", referencedColumnName = "id")
+    @JsonManagedReference
+    private DadosBancarios dadosBancarios;
     @Column(nullable = false)
     private String curso;
 
@@ -72,12 +77,12 @@ public class Estudante {
         this.endereco = endereco;
     }
 
-    public Long getMeioPagamento() {
-        return meioPagamento;
+    public DadosBancarios getDadosBancarios() {
+        return dadosBancarios;
     }
 
-    public void setMeioPagamento(Long meioPagamento) {
-        this.meioPagamento = meioPagamento;
+    public void setDadosBancarios(DadosBancarios dadosBancarios) {
+        this.dadosBancarios = dadosBancarios;
     }
 
     public String getCurso() {

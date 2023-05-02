@@ -40,7 +40,6 @@ public class EstudanteService {
                     estudanteToUpdate.setCurso(estudante.getCurso());
                     estudanteToUpdate.setEndereco(estudante.getEndereco());
                     estudanteToUpdate.setNome(estudante.getNome());
-                    estudanteToUpdate.setMeioPagamento(estudante.getMeioPagamento());
                     Estudante updated = estudanteRepository.save(estudanteToUpdate);
                     return ResponseEntity.ok().body(updated);
                 }).orElse(ResponseEntity.notFound().build());
@@ -69,32 +68,27 @@ public class EstudanteService {
         return estudanteRepository.findBycurso(curso);
     }
 
-
-    //TODO desafio: adicione resposta de 404 quando nao achar nenhum dentro desse filtro
-
-    public List<Estudante> listarEstudantesPeloComecoDoNome(String comecoNome) {
+    public List<Estudante> listarEstudantesPeloComecoDoNome(String comecoNome){
         return estudanteRepository.findByNomeStartingWith(comecoNome);
     }
 
 
-    //TODO desafio: adicione resposta de 404 quando nao achar nenhum dentro desse filtro
-
-    public List<Estudante> listarEstudantesPeloComecoDoNomeECurso(String comecoNome, String curso) {
+    public List<Estudante> listarEstudantesPeloComecoDoNomeECurso(String comecoNome, String curso){
         return estudanteRepository.findByNomeStartingWithAndCurso(comecoNome, curso);
     }
 
 
-    //TODO desafio: adicione resposta de 404 quando nao achar nenhum dentro desse filtro
-
-    public List<Estudante> listarEstudantesPeloEndereco(String endereco) {
+    public List<Estudante> listarEstudantesPeloEndereco(String endereco){
         return estudanteRepository.findByEnderecoStartingWithOrderByEnderecoDesc(endereco);
     }
 
-    //TODO desafio: adicione resposta de 404 quando nao achar nenhum dentro desse filtro
 
-    public List<Estudante> listarPrimeirosEstudantes(Long id) {
+    public List<Estudante> listarPrimeirosEstudantes(Long id){
         return estudanteRepository.findByIdLessThanEqual(id);
     }
+
+
+
 
 
 }
