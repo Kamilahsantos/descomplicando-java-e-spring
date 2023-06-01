@@ -1,12 +1,12 @@
 package com.linuxtips.descomplicandojavaespring.estudanteapi.service;
 
 
+import com.linuxtips.descomplicandojavaespring.estudanteapi.exception.EstudanteDuplicadoException;
 import com.linuxtips.descomplicandojavaespring.estudanteapi.model.Estudante;
 import com.linuxtips.descomplicandojavaespring.estudanteapi.repository.EstudanteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -18,13 +18,13 @@ public class EstudanteService {
     private EstudanteRepository estudanteRepository;
 
 
-    public Estudante criarEstudante(Estudante estudante) throws Exception {
+    public Estudante criarEstudante(Estudante estudante) throws EstudanteDuplicadoException {
         try {
             return estudanteRepository.save(estudante);
 
         }catch (Exception e){
-            throw new Exception
-                    ("Não foi possível salvar esse estudante", e);
+            throw new EstudanteDuplicadoException
+                    ("Estudante com mesmo nome já cadastrado");
         }
         }
 
