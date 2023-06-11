@@ -1,16 +1,15 @@
 package com.linuxtips.descomplicandojavaespring.estudanteapi.controller;
 
 
-import com.linuxtips.descomplicandojavaespring.estudanteapi.exception.EstudanteNaoEncontradoException;
 import com.linuxtips.descomplicandojavaespring.estudanteapi.model.Estudante;
 import com.linuxtips.descomplicandojavaespring.estudanteapi.service.EstudanteService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1")
@@ -18,7 +17,6 @@ public class EstudanteController {
 
     @Autowired
     private EstudanteService estudanteService;
-
 
 
     @PostMapping("/estudantes")
@@ -37,29 +35,15 @@ public class EstudanteController {
 
     @GetMapping("/estudantes/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Estudante buscarEstudantePeloId
-            (@PathVariable(value = "id") Long id)  throws Exception{
-        Estudante e = estudanteService.buscarEstudantePeloId(id).getBody();
-        if(e==null){
-            throw  new EstudanteNaoEncontradoException(id);
-        } return e;
+    public Optional<Estudante> buscarEstudantePeloId(@PathVariable(value = "id") Long id) throws Exception {
+        return estudanteService.buscarEstudantePeloId(id);
 
     }
-    @ExceptionHandler(EstudanteNaoEncontradoException.class)
-    public ResponseEntity<String> handleEstudanteNaoEncontradoException(
-             Exception ex
-    ) {
-        return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)
-                .body(ex.getMessage() + "\n"
-                + ex.getClass());
-    }
+
 
     @PutMapping("/estudantes/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Estudante> atualizarEstudantePeloId
-            (@PathVariable(value = "id") Long id,
-             @RequestBody Estudante estudante) {
+    public ResponseEntity<Estudante> atualizarEstudantePeloId(@PathVariable(value = "id") Long id, @RequestBody Estudante estudante) {
         return estudanteService.atualizarEstudantePeloId(estudante, id);
 
     }
@@ -67,16 +51,14 @@ public class EstudanteController {
 
     @DeleteMapping("/estudantes/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public ResponseEntity<Object> excluirEstudantePeloId
-            (@PathVariable(value = "id") Long id) {
+    public ResponseEntity<Object> excluirEstudantePeloId(@PathVariable(value = "id") Long id) {
         return estudanteService.excluirEstudantePeloId(id);
 
     }
 
     @GetMapping("/estudantes/nome/{nome}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Estudante> buscarEstudantePeloNome
-            (@PathVariable(value = "nome") String nome) {
+    public ResponseEntity<Estudante> buscarEstudantePeloNome(@PathVariable(value = "nome") String nome) {
         return estudanteService.buscarEstudantePeloNome(nome);
 
     }
@@ -88,7 +70,6 @@ public class EstudanteController {
     }
 
 
-
     @GetMapping("/estudantes/nome")
     @ResponseStatus(HttpStatus.OK)
     public List<Estudante> listarEstudantesPeloComecoNome(@RequestParam String comeco_nome) {
@@ -97,28 +78,21 @@ public class EstudanteController {
 
     @GetMapping("/estudantes/curso-nome")
     @ResponseStatus(HttpStatus.OK)
-    public List<Estudante> listarEstudantesPeloComecoNomeECurso
-            (@RequestParam String comeco_nome,
-             @RequestParam String curso) {
+    public List<Estudante> listarEstudantesPeloComecoNomeECurso(@RequestParam String comeco_nome, @RequestParam String curso) {
         return estudanteService.listarEstudantesPeloComecoDoNomeECurso(comeco_nome, curso);
     }
 
     @GetMapping("/estudantes/endereco")
     @ResponseStatus(HttpStatus.OK)
-    public List<Estudante> listarEstudantesPeloEndereco
-            (@RequestParam String endereco
-            ) {
+    public List<Estudante> listarEstudantesPeloEndereco(@RequestParam String endereco) {
         return estudanteService.listarEstudantesPeloEndereco(endereco);
     }
 
     @GetMapping("/estudantes/promo")
     @ResponseStatus(HttpStatus.OK)
-    public List<Estudante> listarPrimeirosEstudantes
-            (@RequestParam Long id
-            ) {
+    public List<Estudante> listarPrimeirosEstudantes(@RequestParam Long id) {
         return estudanteService.listarPrimeirosEstudantes(id);
     }
-
 
 
 }
