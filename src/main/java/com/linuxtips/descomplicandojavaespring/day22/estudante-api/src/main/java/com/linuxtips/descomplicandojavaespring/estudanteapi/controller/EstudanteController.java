@@ -1,8 +1,10 @@
 package com.linuxtips.descomplicandojavaespring.estudanteapi.controller;
 
 
+import com.linuxtips.descomplicandojavaespring.estudanteapi.exception.EstudanteNaoEncontradoException;
 import com.linuxtips.descomplicandojavaespring.estudanteapi.model.Estudante;
 import com.linuxtips.descomplicandojavaespring.estudanteapi.service.EstudanteService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,13 +37,23 @@ public class EstudanteController {
 
     @GetMapping("/estudantes/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Estudante> buscarEstudantePeloId
-            (@PathVariable(value = "id") Long id) {
-        return estudanteService.buscarEstudantePeloId(id);
+    public Estudante buscarEstudantePeloId
+            (@PathVariable(value = "id") Long id)  throws Exception{
+        Estudante e = estudanteService.buscarEstudantePeloId(id).getBody();
+        if(e==null){
+            throw  new EstudanteNaoEncontradoException(id);
+        } return e;
 
     }
-
-
+    @ExceptionHandler(EstudanteNaoEncontradoException.class)
+    public ResponseEntity<String> handleEstudanteNaoEncontradoException(
+             Exception ex
+    ) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(ex.getMessage() + "\n"
+                + ex.getClass());
+    }
 
     @PutMapping("/estudantes/{id}")
     @ResponseStatus(HttpStatus.OK)
