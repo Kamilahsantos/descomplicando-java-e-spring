@@ -35,7 +35,8 @@ public class Estudante {
 
     @UpdateTimestamp
     @Column(name = "atualizado_em")
-    private  LocalDateTime atualizadoEm;
+    private LocalDateTime atualizadoEm;
+
     public LocalDateTime getCriadoEm() {
         return criadoEm;
     }
