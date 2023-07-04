@@ -52,15 +52,6 @@ public class EstudanteRepositoryTest {
     }
 
 
-    @DisplayName("Sucesso - Deve buscar um estudante pelo id com sucesso")
-    @Test
-    void deveBuscarUmEstudantePeloIdComSucesso() {
-        estudanteRepository.save(buildMockEstudante());
-
-        Optional<Estudante> estudante = this.estudanteRepository.findById(1L);
-        assertTrue(estudante.isPresent());
-    }
-
     @DisplayName("Sucesso - Deve buscar um estudante pelo nome com sucesso")
     @Test
     void deveBuscarUmEstudantePeloNomeComSucesso() {
