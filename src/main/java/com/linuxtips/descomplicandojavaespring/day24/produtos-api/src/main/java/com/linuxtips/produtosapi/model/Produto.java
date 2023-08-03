@@ -21,6 +21,15 @@ public class Produto {
     @DynamoDBAttribute
     private Double preco;
 
+    public Produto(String produtoId, String nome, Double preco) {
+        this.produtoId = produtoId;
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    public Produto() {
+    }
+
     public String getProdutoId() {
         return produtoId;
     }
@@ -43,16 +52,6 @@ public class Produto {
 
     public void setPreco(Double preco) {
         this.preco = preco;
-    }
-
-
-    public Produto(String produtoId, String nome, Double preco) {
-        this.produtoId = produtoId;
-        this.nome = nome;
-        this.preco = preco;
-    }
-
-    public Produto() {
     }
 
 }

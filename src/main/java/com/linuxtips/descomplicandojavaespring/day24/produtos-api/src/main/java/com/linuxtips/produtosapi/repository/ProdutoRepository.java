@@ -33,7 +33,7 @@ public class ProdutoRepository {
 
     public Produto atualizar(String produtoId, Produto produto) {
         dynamoDBMapper.save(new Produto
-                        (produtoId,produto.getNome(),
+                        (produtoId, produto.getNome(),
                                 produto.getPreco()),
                 new DynamoDBSaveExpression()
                         .withExpectedEntry("produtoId",
