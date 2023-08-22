@@ -3,6 +3,8 @@ package com.linuxtips.descomplicandojavaespring.estudanteapi.controller;
 
 import com.linuxtips.descomplicandojavaespring.estudanteapi.model.Estudante;
 import com.linuxtips.descomplicandojavaespring.estudanteapi.service.EstudanteService;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,21 @@ import java.util.List;
 @RequestMapping("/v1")
 public class EstudanteController {
 
+
+    Counter novosEstudantesCounter;
+
+    Counter estudantesDesmatriculados;
+
+
+    public EstudanteController(MeterRegistry registry) {
+        novosEstudantesCounter = Counter.builder("novos_estudantes_counter")
+                .description("Estudantes matriculados")
+                .register(registry);
+
+        estudantesDesmatriculados = Counter.builder("estudantes_desmatriculados_counter")
+                .description("Estudantes desmatriculados")
+                .register(registry);
+    }
     @Autowired
     private EstudanteService estudanteService;
 
@@ -22,6 +39,7 @@ public class EstudanteController {
     @PostMapping("/estudantes")
     @ResponseStatus(HttpStatus.CREATED)
     public Estudante criarEstudante(@RequestBody Estudante estudante) {
+        novosEstudantesCounter.increment();
         return estudanteService.criarEstudante(estudante);
     }
 
@@ -57,6 +75,7 @@ public class EstudanteController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity<Object> excluirEstudantePeloId
             (@PathVariable(value = "id") Long id) {
+        estudantesDesmatriculados.increment();
         return estudanteService.excluirEstudantePeloId(id);
 
     }
