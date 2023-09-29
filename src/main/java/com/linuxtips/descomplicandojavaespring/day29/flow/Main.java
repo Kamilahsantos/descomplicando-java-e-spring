@@ -8,7 +8,7 @@ public class Main {
 
         final Publisher flow = new Publisher();
 
-        flow.entrega(10000L, 20000L, 30000L, 40000L, 50000L, 600L, 700L, 800L, 900L, 1000L, 20);
+        flow.entrega(1000000000000L, 20000000L, 30000000L, 40000000L, 500000000000000L, 60L, 700L, 800000L, 900000L, 10000000L, 20);
 
 // nano segundos até concluir as entregas
         long startTime = System.nanoTime();
